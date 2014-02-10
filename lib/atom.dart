@@ -48,6 +48,25 @@ abstract class AtomEntry<T> {
 }
 
 abstract class AtomFeed<T extends AtomEntry> {
+  factory AtomFeed(final IRI id,
+      final String title,
+      final DateTime updated, {
+        final Iterable<AtomPerson> authors : Persistent.EMPTY_SEQUENCE,
+        final Iterable<AtomCategory> categories : Persistent.EMPTY_SEQUENCE,
+        final Iterable<AtomPerson> contributors : Persistent.EMPTY_SEQUENCE,
+        final Iterable<T> entries : Persistent.EMPTY_SEQUENCE,
+        final AtomGenerator generator,
+        final IRI icon,
+        final Iterable<AtomLink> links : Persistent.EMPTY_SEQUENCE,
+        final IRI logo,
+        final String rights,
+        final String subtitle}) => new _AtomFeed(
+            checkNotNull(authors), checkNotNull(categories), checkNotNull(contributors),
+            checkNotNull(entries), new Option(generator), new Option(icon),
+            checkNotNull(id), checkNotNull(links), new Option(logo),
+            new Option(rights), new Option(subtitle), checkNotNull(title),
+            checkNotNull(updated));       
+      
   Iterable<AtomPerson> get authors;
   Iterable<AtomCategory> get categories;
   Iterable<AtomPerson> get contributors;
