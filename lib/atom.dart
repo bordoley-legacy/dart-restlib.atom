@@ -18,11 +18,11 @@ abstract class AtomEntry<T> {
       final IRI id,
       final String title,
       final DateTime updated, {
-        final Iterable<AtomPerson> authors: Persistent.EMPTY_SEQUENCE,
-        final Iterable <AtomCategory> categories: Persistent.EMPTY_SEQUENCE,
+        final Iterable<AtomPerson> authors: EMPTY_SEQUENCE,
+        final Iterable <AtomCategory> categories: EMPTY_SEQUENCE,
         final T content,
-        final Iterable<AtomPerson> contributors: Persistent.EMPTY_SEQUENCE,
-        final Iterable<AtomLink> links: Persistent.EMPTY_SEQUENCE,
+        final Iterable<AtomPerson> contributors: EMPTY_SEQUENCE,
+        final Iterable<AtomLink> links: EMPTY_SEQUENCE,
         final DateTime published,
         final String rights,
         final AtomFeed source,
@@ -51,13 +51,13 @@ abstract class AtomFeed<T extends AtomEntry> {
   factory AtomFeed(final IRI id,
       final String title,
       final DateTime updated, {
-        final Iterable<AtomPerson> authors : Persistent.EMPTY_SEQUENCE,
-        final Iterable<AtomCategory> categories : Persistent.EMPTY_SEQUENCE,
-        final Iterable<AtomPerson> contributors : Persistent.EMPTY_SEQUENCE,
-        final Iterable<T> entries : Persistent.EMPTY_SEQUENCE,
+        final Iterable<AtomPerson> authors : EMPTY_SEQUENCE,
+        final Iterable<AtomCategory> categories : EMPTY_SEQUENCE,
+        final Iterable<AtomPerson> contributors : EMPTY_SEQUENCE,
+        final Iterable<T> entries : EMPTY_SEQUENCE,
         final AtomGenerator generator,
         final IRI icon,
-        final Iterable<AtomLink> links : Persistent.EMPTY_SEQUENCE,
+        final Iterable<AtomLink> links : EMPTY_SEQUENCE,
         final IRI logo,
         final String rights,
         final String subtitle}) => new _AtomFeed(
@@ -108,7 +108,7 @@ abstract class AtomCategory {
 
 abstract class AtomLink {
   static ImmutableSequence<AtomLink> alternativeLinks(final IRI href, Iterable<Pair<String, MediaRange>> alternatives) =>
-      alternatives.fold(Persistent.EMPTY_SEQUENCE, (final ImmutableSequence sequence, Pair<String, MediaRange> pair) =>
+      alternatives.fold(EMPTY_SEQUENCE, (final ImmutableSequence sequence, Pair<String, MediaRange> pair) =>
           // FIXME: User IRI_ but its crashing right now.
           sequence.add(new AtomLink(URI_.parseValue("$href.${pair.fst}"), rel: ALTERNATE, type: pair.snd)));   
   
