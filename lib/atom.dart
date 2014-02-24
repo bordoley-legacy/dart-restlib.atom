@@ -26,13 +26,13 @@ abstract class AtomEntry<T> {
         final DateTime published,
         final String rights,
         final AtomFeed source,
-        final String summary}) => 
+        final String summary}) =>
             new _AtomEntry(
                 authors, categories, new Option(content),
                 contributors, checkNotNull(id), links,
                 new Option(published), new Option(rights), new Option(source),
                 new Option(summary), checkNotNull(title), checkNotNull(updated));
-  
+
   Iterable<AtomPerson> get authors;
   Iterable <AtomCategory> get categories;
   Option<T> get content;
@@ -65,8 +65,8 @@ abstract class AtomFeed<T extends AtomEntry> {
             checkNotNull(entries), new Option(generator), new Option(icon),
             checkNotNull(id), checkNotNull(links), new Option(logo),
             new Option(rights), new Option(subtitle), checkNotNull(title),
-            checkNotNull(updated));       
-      
+            checkNotNull(updated));
+
   Iterable<AtomPerson> get authors;
   Iterable<AtomCategory> get categories;
   Iterable<AtomPerson> get contributors;
@@ -100,7 +100,7 @@ abstract class AtomCategory {
         final IRI scheme,
         final String term}) =>
             new _AtomCategory(new Option(label), new Option(scheme), checkNotNull(term));
-          
+
   Option<String> get label;
   Option<IRI> get scheme;
   String get term;
@@ -110,8 +110,8 @@ abstract class AtomLink {
   static ImmutableSequence<AtomLink> alternativeLinks(final IRI href, Iterable<Pair<String, MediaRange>> alternatives) =>
       alternatives.fold(EMPTY_SEQUENCE, (final ImmutableSequence sequence, Pair<String, MediaRange> pair) =>
           // FIXME: User IRI_ but its crashing right now.
-          sequence.add(new AtomLink(URI_.parseValue("$href.${pair.fst}"), rel: ALTERNATE, type: pair.snd)));   
-  
+          sequence.add(new AtomLink(URI.parser.parseValue("$href.${pair.fst}"), rel: ALTERNATE, type: pair.snd)));
+
   factory AtomLink(final IRI href, {
         final Language language,
         final int length,
@@ -121,13 +121,13 @@ abstract class AtomLink {
       new _AtomLink(
           href, new Option(language), new Option(length),
           new Option(rel), new Option(title), new Option(type));
-  
+
   factory AtomLink.edit(final IRI href) =>
       new AtomLink(href, rel: EDIT);
-      
+
   factory AtomLink.self(final IRI href) =>
       new AtomLink(href, rel: SELF);
-  
+
   IRI get href;
   Option<Language> get hrefLanguage;
   Option<int> get length;
