@@ -110,7 +110,7 @@ abstract class AtomLink {
   static ImmutableSequence<AtomLink> alternativeLinks(final IRI href, Iterable<Pair<String, MediaRange>> alternatives) =>
       alternatives.fold(EMPTY_SEQUENCE, (final ImmutableSequence sequence, Pair<String, MediaRange> pair) =>
           // FIXME: User IRI_ but its crashing right now.
-          sequence.add(new AtomLink(URI.parser.parseValue("$href.${pair.fst}"), rel: ALTERNATE, type: pair.snd)));
+          sequence.add(new AtomLink(URI.parser.parseValue("$href.${pair.e0}"), rel: ALTERNATE, type: pair.e1)));
 
   factory AtomLink(final IRI href, {
         final Language language,
