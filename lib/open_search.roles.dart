@@ -1,4 +1,4 @@
-library restlib.opensearch.roles;
+library opensearch.roles;
 
 const String REQUEST = "request";
 const String EXAMPLE = "example";

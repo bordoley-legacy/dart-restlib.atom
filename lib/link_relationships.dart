@@ -1,4 +1,4 @@
-library restlib.atom.link_relationships;
+library link_relationships;
 
 // http://www.iana.org/assignments/link-relations/link-relations.xml
 const String ALTERNATE = "alternate";

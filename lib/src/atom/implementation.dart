@@ -1,4 +1,4 @@
-part of restlib.atom;
+part of atom;
 
 class _AtomEntry<T> implements AtomEntry<T> {
   final Iterable<AtomPerson> authors;

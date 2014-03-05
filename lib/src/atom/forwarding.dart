@@ -1,4 +1,4 @@
-part of restlib.atom;
+part of atom;
 
 abstract class ForwardingAtomEntry<T> implements Forwarder, AtomEntry<T> {  
   Iterable<AtomPerson> get authors =>

@@ -1,4 +1,4 @@
-library restlib.atom;
+library atom;
 
 import "package:restlib_common/collections.dart";
 import "package:restlib_common/collections.immutable.dart";

@@ -1,4 +1,4 @@
-library restlib.opensearch;
+library opensearch;
 
 import "package:restlib_common/collections.dart";
 import "package:restlib_core/data.dart";
