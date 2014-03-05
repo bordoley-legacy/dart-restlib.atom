@@ -8,7 +8,7 @@ import "package:restlib_common/preconditions.dart";
 import "package:restlib_core/data.dart";
 import "package:restlib_core/net.dart";
 
-import "atom.link_relationships.dart";
+import "link_relationships.dart";
 
 part "src/atom/forwarding.dart";
 part "src/atom/implementation.dart";
@@ -131,7 +131,7 @@ abstract class AtomLink {
   IRI get href;
   Option<Language> get hrefLanguage;
   Option<int> get length;
-  Option<String> get rel;
-  Option<String> get title;
+  Option<String> get rel; //FIXME: Should this be Iterable?
+  Option<String> get title; // FIXME: String empty instead of Option.NONE?
   Option<MediaRange> get type;
 }
